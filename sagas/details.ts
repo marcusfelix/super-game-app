@@ -1,7 +1,7 @@
 import { failureDetails, requestDetails, updateDetails } from '@/slices/detail';
 import { put, takeEvery } from 'redux-saga/effects';
 
-function* fetchData(game) {
+function* fetchData(game: any) {
   try {
     const response = yield fetch(
         `https://mock-game-api-9a408f047f23.herokuapp.com/api/games/${game.payload}`,
@@ -16,7 +16,7 @@ function* fetchData(game) {
         throw new Error(response.error)
     }
     yield put(updateDetails(response));
-  } catch (error) {
+  } catch (error: any) {
     yield put(failureDetails(error.toString()));
   }
 }

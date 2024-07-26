@@ -20,7 +20,7 @@ function* fetchData() {
       throw new Error(response.error)
     }
     yield put(updateGames(response));
-  } catch (error) {
+  } catch (error: any) {
     yield put(failureGames(error.toString()));
   }
 }
