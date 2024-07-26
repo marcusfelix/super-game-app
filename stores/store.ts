@@ -18,4 +18,6 @@ export const store = configureStore({
         getDefaultMiddleware().concat(middleware),
 })
 
+export type RootState = ReturnType<typeof store.getState>
+
 sagaMiddleware.run(allSagas)
